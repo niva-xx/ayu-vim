@@ -14,7 +14,7 @@ let g:colors_name = "ayu"
 
 let s:palette = {}
 
-let s:palette.bg        = {'dark': "#0F1419",  'light': "#5C6773",  'mirage': "#212733"}
+let s:palette.bg        = {'dark': "#0F1419",  'light': "#F3F3F3",  'mirage': "#212733"}
 
 let s:palette.comment   = {'dark': "#5C6773",  'light': "#ABB0B6",  'mirage': "#5C6773"}
 let s:palette.markup    = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
@@ -29,12 +29,17 @@ let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#
 
 let s:palette.error     = {'dark': "#FF3333",  'light': "#F07178",  'mirage': "#FF3333"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
-let s:palette.panel     = {'dark': "#14191F",  'light': "#FFFFFF",  'mirage': "#272D38"}
+let s:palette.panel     = {'dark': "#14191F",  'light': "#F9FFFF",  'mirage': "#272D38"}
 let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
 let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
 let s:palette.selection = {'dark': "#253340",  'light': "#FFFF00",  'mirage': "#343F4C"}
-let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
-let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
+let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#FF9900",  'mirage': "#D9D7CE"}
+let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#F9F3F3",  'mirage': "#607080"}
+
+let s:palette.diffadd   = {'dark': "#3E4B59",  'light': "#8eaf6b",  'mirage': "#607080"}
+let s:palette.diffdel   = {'dark': "#3E4B59",  'light': "#db6c6c",  'mirage': "#607080"}
+let s:palette.diffdiff  = {'dark': "#3E4B59",  'light': "#ffbf00",  'mirage': "#607080"}
+let s:palette.diffcha   = {'dark': "#3E4B59",  'light': "#3c4c55",  'mirage': "#607080"}
 
 "}}}
 
@@ -92,17 +97,23 @@ exe "hi! CursorLineNr"  .s:fg_accent      .s:bg_line        .s:fmt_none
 exe "hi! LineNr"        .s:fg_guide       .s:bg_none        .s:fmt_none
 
 exe "hi! Directory"     .s:fg_fg_idle     .s:bg_none        .s:fmt_none
-hi DiffAdd          ctermbg=2    ctermfg=0     cterm=NONE      guibg=#8eaf6b guifg=#3c4c55   gui=NONE
-hi DiffDelete       ctermbg=1    ctermfg=0     cterm=NONE      guibg=#db6c6c guifg=#3c4c55   gui=NONE
-hi DiffChange       ctermbg=0    ctermfg=3     cterm=UNDERLINE guibg=#3c4c55 guifg=#ffbf00   gui=UNDERLINE
-hi DiffText         ctermbg=3    ctermfg=0     cterm=NONE      guibg=#ffbf00 guifg=#3c4c55   gui=NONE
 exe "hi! ErrorMsg"      .s:fg_fg          .s:bg_error       .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_bg          .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_fg_idle     .s:bg_panel       .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
 exe "hi! SignColumn"    .s:fg_none        .s:bg_panel       .s:fmt_none
-"   Incsearch"
 
+"   Diff"
+exe "hi! DiffAdd "    .s:fg_none          .s:bg_diffadd        .s:fmt_none
+exe "hi! DiffDelete " .s:fg_none          .s:bg_diffdel        .s:fmt_none
+exe "hi! DiffText "   .s:fg_none          .s:bg_diffdiff       .s:fmt_undr
+exe "hi! DiffChange " .s:fg_none          .s:bg_diffcha        .s:fmt_undr
+" hi DiffAdd          ctermbg=2    ctermfg=0     cterm=NONE      guibg=#8eaf6b guifg=#3c4c55   gui=NONE
+" hi DiffDelete       ctermbg=1    ctermfg=0     cterm=NONE      guibg=#db6c6c guifg=#3c4c55   gui=NONE
+" hi DiffChange       ctermbg=0    ctermfg=3     cterm=UNDERLINE guibg=#3c4c55 guifg=#ffbf00   gui=UNDERLINE
+" hi DiffText         ctermbg=3    ctermfg=0     cterm=NONE      guibg=#ffbf00 guifg=#3c4c55   gui=NONE
+
+"   Incsearch"
 exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_undr
 exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
