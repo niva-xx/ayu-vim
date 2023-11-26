@@ -14,11 +14,11 @@ let g:colors_name = "ayu"
 
 let s:palette = {}
 
-let s:palette.bg        = {'dark': "#0F1419",  'light': "#F3F3F3",  'mirage': "#212733"}
+let s:palette.bg        = {'dark': "#0F1419",  'light': "#FAFAFA",  'mirage': "#212733"}
 
 let s:palette.comment   = {'dark': "#5C6773",  'light': "#ABB0B6",  'mirage': "#5C6773"}
 let s:palette.markup    = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
-let s:palette.constant  = {'dark': "#FFEE99",  'light': "#9771BD",  'mirage': "#D4BFFF"}
+let s:palette.constant  = {'dark': "#FFEE99",  'light': "#BDCDCA",  'mirage': "#D4BFFF"}
 let s:palette.operator  = {'dark': "#E7C547",  'light': "#E7C547",  'mirage': "#80D4FF"}
 let s:palette.tag       = {'dark': "#D4BFFF",  'light': "#B28DFD",  'mirage': "#5CCFE6"}
 let s:palette.regexp    = {'dark': "#FF9cc6",  'light': "#FF9cc6",  'mirage': "#95E6CB"}
@@ -27,12 +27,12 @@ let s:palette.function  = {'dark': "#FFB454",  'light': "#F29718",  'mirage': "#
 let s:palette.special   = {'dark': "#E6B673",  'light': "#E6B673",  'mirage': "#FFC44C"}
 let s:palette.keyword   = {'dark': "#FF7733",  'light': "#FF7733",  'mirage': "#FFAE57"}
 
-let s:palette.error     = {'dark': "#FF3333",  'light': "#F07178",  'mirage': "#FF3333"}
+let s:palette.error     = {'dark': "#F07178",  'light': "#F07178",  'mirage': "#F07178"}
 let s:palette.accent    = {'dark': "#F29718",  'light': "#FF6A00",  'mirage': "#FFCC66"}
 let s:palette.panel     = {'dark': "#14191F",  'light': "#F9FFFF",  'mirage': "#272D38"}
 let s:palette.guide     = {'dark': "#2D3640",  'light': "#D9D8D7",  'mirage': "#3D4751"}
-let s:palette.line      = {'dark': "#151A1E",  'light': "#F3F3F3",  'mirage': "#242B38"}
-let s:palette.selection = {'dark': "#253340",  'light': "#FFFF00",  'mirage': "#343F4C"}
+let s:palette.line      = {'dark': "#151A1E",  'light': "#FFE6EE",  'mirage': "#242B38"}
+let s:palette.selection = {'dark': "#253340",  'light': "#FFdF00",  'mirage': "#343F4C"}
 let s:palette.fg        = {'dark': "#E6E1CF",  'light': "#5C6773",  'mirage': "#D9D7CE"}
 let s:palette.fg_idle   = {'dark': "#3E4B59",  'light': "#828C99",  'mirage': "#607080"}
 
@@ -108,12 +108,7 @@ exe "hi! DiffAdd "    .s:fg_none          .s:bg_diffadd        .s:fmt_none
 exe "hi! DiffDelete " .s:fg_none          .s:bg_diffdel        .s:fmt_none
 exe "hi! DiffText "   .s:fg_none          .s:bg_diffdiff       .s:fmt_undr
 exe "hi! DiffChange " .s:fg_none          .s:bg_diffcha        .s:fmt_undr
-" hi DiffAdd          ctermbg=2    ctermfg=0     cterm=NONE      guibg=#8eaf6b guifg=#3c4c55   gui=NONE
-" hi DiffDelete       ctermbg=1    ctermfg=0     cterm=NONE      guibg=#db6c6c guifg=#3c4c55   gui=NONE
-" hi DiffChange       ctermbg=0    ctermfg=3     cterm=UNDERLINE guibg=#3c4c55 guifg=#ffbf00   gui=UNDERLINE
-" hi DiffText         ctermbg=3    ctermfg=0     cterm=NONE      guibg=#ffbf00 guifg=#3c4c55   gui=NONE
 
-"   Incsearch"
 exe "hi! MatchParen"    .s:fg_fg          .s:bg_bg          .s:fmt_undr
 exe "hi! ModeMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_string      .s:bg_none        .s:fmt_none
@@ -123,8 +118,8 @@ exe "hi! PmenuSel"      .s:fg_fg          .s:bg_selection   .s:fmt_revr
 "   PmenuSbar"
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_string      .s:bg_none        .s:fmt_none
-exe "hi! Search"        .s:fg_bg          .s:bg_selection   .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_bg          .s:bg_none        .s:fmt_none
+exe "hi! Search"        .s:fg_bg          .s:bg_constant   .s:fmt_none
+exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_tag         .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_keyword     .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_error       .s:bg_none        .s:fmt_undr
@@ -149,7 +144,6 @@ hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NO
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment   .s:bg_none        .s:fmt_none
-
 exe "hi! Constant"        .s:fg_constant  .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_string    .s:bg_none        .s:fmt_none
 "   Character"
